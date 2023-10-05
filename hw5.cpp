@@ -29,6 +29,7 @@ int main() {
     for (int i = 0; i < ARRAY_SIZE; ++i) {
         myNumbers[i] = i;
     }
+
     /* Provided code search:*/
     cout << "\nProvided code Search:\n";
     for (int findN = 1000; findN < 10000; findN += 1000) {
@@ -67,7 +68,6 @@ int main() {
         Found 9000 at position 9000
         That search zipped by in 1.1263 milliseconds.
         */
-        
     }
     
     /* Binary Search*/
@@ -120,7 +120,7 @@ int main() {
         Found 9000 at position 9000
         That search zipped by in 0.4948 milliseconds.
     */
-    /* Binary Search PROPER IMPLIMENTAION run:
+    /* Binary Search imPROPER IMPLIMENTAION run:
     Binary Search:
     That search zipped by in 0.0071 milliseconds.
     That search zipped by in 0.0005 milliseconds.
@@ -138,5 +138,39 @@ int main() {
         string s = to_string(i);
         myBag.add(s);
     }
+
+    /* contains test:*/
+    cout << "\nContains Test:\n";
+    for (int findN = 1000; findN < 10000; findN += 1000) {
+        string findS = to_string(findN);
+        high_resolution_clock::time_point startTime = high_resolution_clock::now();
+        int i = 0;
+        if (myBag.contains(findS)){
+            cout << "Bag contains " << findS << "\n";
+        }
+        else {
+            cout << "Bag does not contain " << findS << endl;
+        }
+        high_resolution_clock::time_point stopTime = high_resolution_clock::now();
+        duration<double, std::milli> timeTaken = (stopTime - startTime);
+        cout << "That search zipped by in " << timeTaken.count() << " milliseconds.\n";
+        /* Contains test timing:
+        */
+    }
+
+    /* removeAll test:*/
+    cout << "\nremoveAll Test:\n";
+    for (int findN = 1000; findN < 10000; findN += 1000) {
+        string findS = to_string(findN);
+        high_resolution_clock::time_point startTime = high_resolution_clock::now();
+        int i = myBag.removeAll(findS);
+        cout << "Removed " << findS << " " << i << " time(s).\n";
+        high_resolution_clock::time_point stopTime = high_resolution_clock::now();
+        duration<double, std::milli> timeTaken = (stopTime - startTime);
+        cout << "That search zipped by in " << timeTaken.count() << " milliseconds.\n";
+        /* removeAll test timing:
+        */
+    }
+
     return 0;
 }
