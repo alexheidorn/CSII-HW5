@@ -74,17 +74,8 @@ int main() {
     cout << "\nBinary Search:\n";
     for (int findN = 1000; findN < 10000; findN += 1000) {
         high_resolution_clock::time_point startTime = high_resolution_clock::now();
-        int i = 0;
-        while (i < ARRAY_SIZE) {
-            if (bSrch(i, myNumbers, ARRAY_SIZE)!= findN) {
-                i++;
-            }
-            else {
-                cout << "Found " << findN << " at position " << i << "\n";
-                break;
-            }
-        }    
-        
+        int index = bSrch(findN, myNumbers, ARRAY_SIZE);
+        cout << "Found " << findN << " at position " << index << "\n";
         high_resolution_clock::time_point stopTime = high_resolution_clock::now();
         duration<double, std::milli> timeTaken = (stopTime - startTime);
         cout << "That search zipped by in " << timeTaken.count() << " milliseconds.\n";
