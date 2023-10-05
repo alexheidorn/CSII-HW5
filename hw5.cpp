@@ -46,10 +46,7 @@ int main() {
         high_resolution_clock::time_point stopTime = high_resolution_clock::now();
         duration<double, std::milli> timeTaken = (stopTime - startTime);
         cout << "That search zipped by in " << timeTaken.count() << " milliseconds.\n";
-        
-    }
-    
-    /* Provided code search timing:
+        /* Provided code search timing:
 
         Found 1000 at position 1000
         That search zipped by in 2.5543 milliseconds.
@@ -69,21 +66,16 @@ int main() {
         That search zipped by in 0.7904 milliseconds.
         Found 9000 at position 9000
         That search zipped by in 1.1263 milliseconds.
-    */
+        */
+        
+    }
+    
     /* Binary Search*/
     cout << "\nBinary Search:\n";
     for (int findN = 1000; findN < 10000; findN += 1000) {
         high_resolution_clock::time_point startTime = high_resolution_clock::now();
         int i = 0;
-        while (i < ARRAY_SIZE) {
-            if (bSrch(i, myNumbers, ARRAY_SIZE) != findN) {
-                i++;
-            }
-            else {
-                cout << "Found " << findN << " at position " << i << "\n";
-                break;
-            }
-        }       
+        bSrch(findN, myNumbers, ARRAY_SIZE);     
         high_resolution_clock::time_point stopTime = high_resolution_clock::now();
         duration<double, std::milli> timeTaken = (stopTime - startTime);
         cout << "That search zipped by in " << timeTaken.count() << " milliseconds.\n";
@@ -129,6 +121,17 @@ int main() {
         Found 9000 at position 9000
         That search zipped by in 0.4948 milliseconds.
     */
-
+    /* Binary Search PROPER IMPLIMENTAION run:
+    Binary Search:
+    That search zipped by in 0.0071 milliseconds.
+    That search zipped by in 0.0005 milliseconds.
+    That search zipped by in 0.0005 milliseconds.
+    That search zipped by in 0.0005 milliseconds.
+    That search zipped by in 0.0006 milliseconds.
+    That search zipped by in 0.001 milliseconds.
+    That search zipped by in 0.0005 milliseconds.
+    That search zipped by in 0.0006 milliseconds.
+    That search zipped by in 0.0007 milliseconds.
+    */
     return 0;
 }
