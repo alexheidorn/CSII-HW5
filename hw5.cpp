@@ -75,7 +75,16 @@ int main() {
     for (int findN = 1000; findN < 10000; findN += 1000) {
         high_resolution_clock::time_point startTime = high_resolution_clock::now();
         int i = 0;
-        bSrch(findN, myNumbers, ARRAY_SIZE);     
+        while (i < ARRAY_SIZE) {
+            if (bSrch(i, myNumbers, ARRAY_SIZE)!= findN) {
+                i++;
+            }
+            else {
+                cout << "Found " << findN << " at position " << i << "\n";
+                break;
+            }
+        }    
+        
         high_resolution_clock::time_point stopTime = high_resolution_clock::now();
         duration<double, std::milli> timeTaken = (stopTime - startTime);
         cout << "That search zipped by in " << timeTaken.count() << " milliseconds.\n";
@@ -100,7 +109,6 @@ int main() {
         Found 9000 at position 9000
         That search zipped by in 2.6885 milliseconds.
     */
-
     /* Binary Search Timing 2nd run:
         Found 1000 at position 1000
         That search zipped by in 1.0632 milliseconds.
@@ -133,5 +141,11 @@ int main() {
     That search zipped by in 0.0006 milliseconds.
     That search zipped by in 0.0007 milliseconds.
     */
+    
+    MyBag_String myBag(ARRAY_SIZE);
+    for (int i = 0; i < ARRAY_SIZE; ++i) {
+        string s = to_string(i);
+        myBag.add(s);
+    }
     return 0;
 }
