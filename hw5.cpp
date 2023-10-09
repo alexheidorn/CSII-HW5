@@ -6,6 +6,108 @@
 *  
 */
 
+/* 
+Explain what results each of you got for your tests.  
+Also, write up what you may have learned from those experiments.
+
+Explanation:
+Compared to the simple search, the binary search appears to be a little bit faster.
+The binary search is about .3-.9 miliseconds faster for each trial.
+The contains test appears to be the fastest for the smaller numbers because it's 
+only doing one comparison for each data member and then can break early as
+soon as the target is found. The test slows down a little bit as the number increases
+because it needs to look for a longer amount of time.
+The removeAll functions is the slowest it needs to page through the entire bag
+every time the operation is called AND move proceeding data forward in the array. 
+This operation speeds up a litte bit for a later values in the bag because
+there are fewer values that need to be moved forward.
+
+
+Timings:
+
+Alex:
+Provided code Search:
+Found 1000 at position 1000
+That search zipped by in 1.3883 milliseconds.
+Found 2000 at position 2000
+That search zipped by in 1.0994 milliseconds.
+Found 3000 at position 3000
+That search zipped by in 1.0329 milliseconds.
+Found 4000 at position 4000
+That search zipped by in 1.1136 milliseconds.
+Found 5000 at position 5000
+That search zipped by in 1.3557 milliseconds.
+Found 6000 at position 6000
+That search zipped by in 0.5777 milliseconds.
+Found 7000 at position 7000
+That search zipped by in 0.8085 milliseconds.
+Found 8000 at position 8000
+That search zipped by in 0.8677 milliseconds.
+Found 9000 at position 9000
+That search zipped by in 0.6914 milliseconds.
+
+Binary Search:
+Found 1000 at position 1000
+That search zipped by in 0.4922 milliseconds.
+Found 2000 at position 2000
+That search zipped by in 0.4527 milliseconds.
+Found 3000 at position 3000
+That search zipped by in 0.7319 milliseconds.
+Found 4000 at position 4000
+That search zipped by in 0.6605 milliseconds.
+Found 5000 at position 5000
+That search zipped by in 0.4871 milliseconds.
+Found 6000 at position 6000
+That search zipped by in 0.6712 milliseconds.
+Found 7000 at position 7000
+That search zipped by in 0.6119 milliseconds.
+Found 8000 at position 8000
+That search zipped by in 0.6936 milliseconds.
+Found 9000 at position 9000
+That search zipped by in 0.5391 milliseconds.
+
+Contains Test:
+Bag contains 1000
+That search zipped by in 0.3259 milliseconds.
+Bag contains 2000
+That search zipped by in 0.2985 milliseconds.
+Bag contains 3000
+That search zipped by in 0.6553 milliseconds.
+Bag contains 4000
+That search zipped by in 0.4433 milliseconds.
+Bag contains 5000
+That search zipped by in 0.5316 milliseconds.
+Bag contains 6000
+That search zipped by in 0.4991 milliseconds.
+Bag contains 7000
+That search zipped by in 0.5099 milliseconds.
+Bag contains 8000
+That search zipped by in 0.6158 milliseconds.
+Bag contains 9000
+That search zipped by in 0.9282 milliseconds.
+
+removeAll Test:
+Removed 1000 1 time(s).
+That search zipped by in 2.641 milliseconds.
+Removed 2000 1 time(s).
+That search zipped by in 1.7788 milliseconds.
+Removed 3000 1 time(s).
+That search zipped by in 1.8486 milliseconds.
+Removed 4000 1 time(s).
+That search zipped by in 2.6508 milliseconds.
+Removed 5000 1 time(s).
+That search zipped by in 1.6082 milliseconds.
+Removed 6000 1 time(s).
+That search zipped by in 1.2072 milliseconds.
+Removed 7000 1 time(s).
+That search zipped by in 3.3495 milliseconds.
+Removed 8000 1 time(s).
+That search zipped by in 1.4771 milliseconds.
+Removed 9000 1 time(s).
+That search zipped by in 1.4892 milliseconds.
+PS C:\Users\alexh\CS2> 
+*/
+
 #include "MyBag_StringHW5.cpp"
 #include <iostream>
 #include <chrono>
@@ -47,27 +149,6 @@ int main() {
         high_resolution_clock::time_point stopTime = high_resolution_clock::now();
         duration<double, std::milli> timeTaken = (stopTime - startTime);
         cout << "That search zipped by in " << timeTaken.count() << " milliseconds.\n";
-        /* Provided code search timing:
-
-        Found 1000 at position 1000
-        That search zipped by in 2.5543 milliseconds.
-        Found 2000 at position 2000
-        That search zipped by in 0.9138 milliseconds.
-        Found 3000 at position 3000
-        That search zipped by in 1.7079 milliseconds.
-        Found 4000 at position 4000
-        That search zipped by in 1.4002 milliseconds.
-        Found 5000 at position 5000
-        That search zipped by in 0.7587 milliseconds.
-        Found 6000 at position 6000
-        That search zipped by in 0.4111 milliseconds.
-        Found 7000 at position 7000
-        That search zipped by in 1.1393 milliseconds.
-        Found 8000 at position 8000
-        That search zipped by in 0.7904 milliseconds.
-        Found 9000 at position 9000
-        That search zipped by in 1.1263 milliseconds.
-        */
     }
     
     /* Binary Search*/
@@ -80,59 +161,7 @@ int main() {
         duration<double, std::milli> timeTaken = (stopTime - startTime);
         cout << "That search zipped by in " << timeTaken.count() << " milliseconds.\n";
     }
-    /* Binary Search timing First Run:
-        Found 1000 at position 1000
-        That search zipped by in 1.0905 milliseconds.
-        Found 2000 at position 2000
-        That search zipped by in 1.0635 milliseconds.
-        Found 3000 at position 3000
-        That search zipped by in 1.2658 milliseconds.
-        Found 4000 at position 4000
-        That search zipped by in 1.4534 milliseconds.
-        Found 5000 at position 5000
-        That search zipped by in 1.0055 milliseconds.
-        Found 6000 at position 6000
-        That search zipped by in 1.0415 milliseconds.
-        Found 7000 at position 7000
-        That search zipped by in 1.3224 milliseconds.
-        Found 8000 at position 8000
-        That search zipped by in 1.4714 milliseconds.
-        Found 9000 at position 9000
-        That search zipped by in 2.6885 milliseconds.
-    */
-    /* Binary Search Timing 2nd run:
-        Found 1000 at position 1000
-        That search zipped by in 1.0632 milliseconds.
-        Found 2000 at position 2000
-        That search zipped by in 0.5291 milliseconds.
-        Found 3000 at position 3000
-        That search zipped by in 0.7275 milliseconds.
-        Found 4000 at position 4000
-        That search zipped by in 0.8177 milliseconds.
-        Found 5000 at position 5000
-        That search zipped by in 0.9369 milliseconds.
-        Found 6000 at position 6000
-        That search zipped by in 0.5172 milliseconds.
-        Found 7000 at position 7000
-        That search zipped by in 0.4487 milliseconds.
-        Found 8000 at position 8000
-        That search zipped by in 0.4299 milliseconds.
-        Found 9000 at position 9000
-        That search zipped by in 0.4948 milliseconds.
-    */
-    /* Binary Search imPROPER IMPLIMENTAION run:
-    Binary Search:
-    That search zipped by in 0.0071 milliseconds.
-    That search zipped by in 0.0005 milliseconds.
-    That search zipped by in 0.0005 milliseconds.
-    That search zipped by in 0.0005 milliseconds.
-    That search zipped by in 0.0006 milliseconds.
-    That search zipped by in 0.001 milliseconds.
-    That search zipped by in 0.0005 milliseconds.
-    That search zipped by in 0.0006 milliseconds.
-    That search zipped by in 0.0007 milliseconds.
-    */
-    
+
     MyBag_String myBag(ARRAY_SIZE);
     for (int i = 0; i < ARRAY_SIZE; ++i) {
         string s = to_string(i);
@@ -154,8 +183,6 @@ int main() {
         high_resolution_clock::time_point stopTime = high_resolution_clock::now();
         duration<double, std::milli> timeTaken = (stopTime - startTime);
         cout << "That search zipped by in " << timeTaken.count() << " milliseconds.\n";
-        /* Contains test timing:
-        */
     }
 
     /* removeAll test:*/
@@ -168,8 +195,6 @@ int main() {
         high_resolution_clock::time_point stopTime = high_resolution_clock::now();
         duration<double, std::milli> timeTaken = (stopTime - startTime);
         cout << "That search zipped by in " << timeTaken.count() << " milliseconds.\n";
-        /* removeAll test timing:
-        */
     }
 
     return 0;
